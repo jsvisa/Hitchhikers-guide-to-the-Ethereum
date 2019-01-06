@@ -28,4 +28,5 @@ optimize:
 ifndef TINIFY_ACCESS_KEY
 	$(error "enviroment variable TINIFY_ACCESS_KEY not set, set is via https://tinypng.com/dashboard/api")
 endif
-	python optimize-asset.py
+	@pip install tinify >/dev/null 2>&1
+	@python optimize-asset.py

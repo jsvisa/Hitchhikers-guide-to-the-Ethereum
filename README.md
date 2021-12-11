@@ -5,7 +5,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [概述](#%E6%A6%82%E8%BF%B0)
 - [约定](#%E7%BA%A6%E5%AE%9A)
 
@@ -14,7 +13,6 @@
 ## 概述
 
 本系列笔记以 [ethereum/go-ethereum at v1.8.17](https://github.com/ethereum/go-ethereum/tree/v1.8.17) 为基线，记录 Ethereum Golang 客户端即 Geth 代码分析过程中的学习记录。本文记录过程中使用 [Typora — a markdown editor, markdown reader.](https://typora.io/) 作为 markdown 编辑器，如果你的编辑器不支持 Latex 格式的 mathmatic 公式，那么在阅读此文的时候会发现有一些格式不正常，推荐使用 Typora.io；另外所有的流程图均使用 [OmniGraffle - diagramming and graphic design for Mac, iPhone, and iPad - The Omni Group](https://www.omnigroup.com/omnigraffle/) 绘制。另外，其中一些图片使用了网上的资源，均标注了来源，如有遗漏请说明，笔记内容为个人学习 Geth 源码且参考网上已有内容而生成（均已标注来源，如有遗漏，请提示）。
-
 
 本系列笔记分为以下几个系列：
 
@@ -37,6 +35,6 @@
 
 ## 约定
 
-* 「Tx」 代表名词的交易，常用的场景是一笔 Tx；「交易」代表动词的交易，常用的场景是执行交易；
-* 「转账」特指 Ether 转账，不包括合约创建和调用；
-* 「Transaction」Yellowpaper 中明显定义：*A transaction is a single cryptographically-signed instruction constructed by an actor externally to the scope of Ethereum.* Etherueum 中的交易指是一个由外部单一数字签名生成的指令，由于合约账号没有私钥，故无法生成数字签名，因此合约账号所发起的交易不是 Tx，只能算是 message call, 本文中也称为 internal call。
+- 「Tx」 代表名词的交易，常用的场景是一笔 Tx；「交易」代表动词的交易，常用的场景是执行交易；
+- 「转账」特指 Ether 转账，不包括合约创建和调用；
+- 「Transaction」Yellowpaper 中明显定义：_A transaction is a single cryptographically-signed instruction constructed by an actor externally to the scope of Ethereum._ Etherueum 中的交易指是一个由外部单一数字签名生成的指令，由于合约账号没有私钥，故无法生成数字签名，因此合约账号所发起的交易不是 Tx，只能算是 message call, 本文中也称为 internal call。
